@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hth · 日常对照与延伸阅读</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'PingFang SC', Roboto, system-ui, -apple-system, sans-serif;
+            background: linear-gradient(145deg, #fcf3e5 0%, #fae5d3 40%, #f5d6c6 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1.5rem;
+            line-height: 1.7;
+            color: #3c2e2a;
+        }
+
+        .page-wrapper {
+            max-width: 780px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .hero {
+            text-align: left;
+            margin-bottom: 2.2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #4d332a;
+            border-left: 5px solid #c79a7b;
+            padding-left: 1.2rem;
+            margin-bottom: 0.6rem;
+            line-height: 1.3;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #5f4236;
+            max-width: 90%;
+            margin-top: 0.3rem;
+        }
+
+        .content-card {
+            background: #fffbf7;
+            border-radius: 32px;
+            box-shadow: 0 12px 28px rgba(155, 100, 70, 0.12),
+                        0 4px 12px rgba(120, 80, 55, 0.06);
+            padding: 2.4rem 2.2rem;
+            margin-bottom: 2.5rem;
+            transition: box-shadow 0.2s;
+        }
+
+        .content-card:hover {
+            box-shadow: 0 16px 36px rgba(155, 100, 70, 0.16);
+        }
+
+        .article-title {
+            font-size: 1.75rem;
+            font-weight: 500;
+            color: #4b2f24;
+            margin-bottom: 0.25rem;
+            letter-spacing: 0.5px;
+        }
+
+        .article-meta {
+            display: inline-block;
+            font-size: 0.9rem;
+            color: #95745e;
+            background: #f0e4da;
+            padding: 0.2rem 0.9rem;
+            border-radius: 40px;
+            margin-bottom: 1.4rem;
+        }
+
+        .article-body p {
+            margin-bottom: 1.3rem;
+            font-size: 1rem;
+        }
+
+        .article-body p:last-of-type {
+            margin-bottom: 0.8rem;
+        }
+
+        .pull-quote {
+            background: #f6ede6;
+            border-left: 6px solid #c79a7b;
+            padding: 1rem 1.5rem;
+            margin: 1.6rem 0 1.8rem 0;
+            border-radius: 0 20px 20px 0;
+            font-style: normal;
+            color: #3f2b21;
+            font-weight: 400;
+            box-shadow: inset 2px 0 0 #b5886b;
+        }
+
+        .pull-quote::before {
+            content: "📌 提示  ";
+            font-weight: 500;
+            color: #a26f4e;
+        }
+
+        .sentence-link {
+            display: inline;
+            background: transparent;
+            padding: 0;
+        }
+
+        .sentence-link a {
+            color: #9b6b4b;
+            background: #f3e6dd;
+            padding: 0.05rem 0.5rem;
+            border-radius: 24px;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px solid #dbb7a0;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .sentence-link a:hover {
+            background: #dbb7a0;
+            color: #3b241b;
+            border-bottom-color: #9b6b4b;
+        }
+
+        .faq-mini {
+            margin-top: 1.8rem;
+            padding-top: 1.2rem;
+            border-top: 2px dashed #ebd6c9;
+        }
+
+        .faq-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-q {
+            font-weight: 600;
+            color: #4d3024;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-a {
+            color: #4f3a30;
+            padding-left: 0.2rem;
+        }
+
+        .visit-line {
+            background: #f2e4da;
+            padding: 0.7rem 1.3rem;
+            border-radius: 60px;
+            display: inline-block;
+            font-size: 0.95rem;
+            color: #3d2b22;
+            margin-top: 0.8rem;
+            box-shadow: 0 2px 6px rgba(130, 80, 55, 0.08);
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #7a5e4e;
+            margin: 2rem 0 1rem 0;
+            padding: 1rem 0;
+            border-top: 1px solid #ebd3c4;
+            width: 100%;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 1.2rem 1rem;
+            }
+            .content-card {
+                padding: 1.8rem 1.3rem;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+                padding-left: 0.8rem;
+            }
+            .article-title {
+                font-size: 1.4rem;
+            }
+            .pull-quote {
+                padding: 0.8rem 1rem;
+                margin: 1rem 0 1.2rem 0;
+            }
+            .hero p {
+                max-width: 100%;
+                font-size: 1rem;
+            }
+            .visit-line {
+                font-size: 0.9rem;
+                padding: 0.5rem 1rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .article-body p {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Hero -->
+        <div class="hero">
+            <h1>日常查询 · 对照 · 延伸</h1>
+            <p>一份整理过的说明页，从查找习惯出发，围绕 <span class="sentence-link"><a href="https://hth-site-huatihui.com">hth</a></span> 展开平实的记录与参考。</p>
+        </div>
+
+        <!-- Main article card -->
+        <div class="content-card">
+            <div class="article-title">翻阅的起点：从一次查询开始</div>
+            <div class="article-meta">整理笔记 · 若干条记录</div>
+
+            <div class="article-body">
+                <p>很多时候我们打开一个页面，并不是为了深入钻研，而是想快速确认某个名称或缩写对应的内容。就像在书页边缘折一个角，下次再来时能直接翻到那一行。<span class="sentence-link"><a href="https://hth-site-huatihui.com">hth</a></span> 这个标识，最初也是从类似的情景里被记录下来的——在对照几份资料时，它反复出现，于是单独摘出，方便来回比对。</p>
+
+                <p>日常阅读中，总会遇到一些片段或代码式的词，单独看略显抽象，但放在上下文里又有自己的位置。把这类词收集起来，做成简洁的条目，可以在后续查阅时省去重新搜索的周折。页面结构不必复杂，一段介绍、几行对照、一条指引，就足够应付多数回头翻阅的需求。</p>
+
+                <div class="pull-quote">
+                    当你需要再次确认某个名称或缩写时，<span class="sentence-link"><a href="https://hth-site-huatihui.com">hth</a></span> 页面可以作为对照的中转。不需要翻找历史记录，直接打开即可。
+                </div>
+
+                <p>延伸阅读有时是主动的，有时是被动的。看到不熟悉的概念，顺着手边的线索查下去，不知不觉就多看了几篇相关文档。这个页面保留了这种延伸的入口——它不代替搜索，但提供一条稳定的索引路径。页面本身保持克制的风格，没有浮夸的承诺，只有整理过的内容块，以及让读者可以自行判断的原始信息。</p>
+
+                <p>在实际使用中，不同的人对同一段内容的关注点可能完全不同。有人需要快速定位关键字段，有人在意上下文逻辑，也有人只是想确认某个拼写或格式。因此，这个页面在排版上留出了足够的间距和视觉分区，让各种阅读习惯都能找到自己的节奏。</p>
+            </div>
+
+            <!-- Mini FAQ -->
+            <div class="faq-mini">
+                <div class="faq-item">
+                    <div class="faq-q">▸ 这个页面主要收录什么类型的信息？</div>
+                    <div class="faq-a">以日常查询中反复出现的名称、缩写、条目为主，附带简洁的对照说明和延伸阅读线索。不堆砌无关内容。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">▸ 如何快速回到这个对照页？</div>
+                    <div class="faq-a">你可以将 <span class="sentence-link"><a href="https://hth-site-huatihui.com">hth</a></span> 加入书签，或直接在地址栏输入对应网址。页面本身轻量，加载快，适合频繁调用。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">▸ 内容会更新吗？</div>
+                    <div class="faq-a">随日常记录逐步补充。每次调整都保持清晰、平实的风格，不以更新频率为优先，而以准确和有用为前提。</div>
+                </div>
+            </div>
+
+            <div class="visit-line">
+                ✦ 日常对照 · 延伸阅读 · 从 <span class="sentence-link"><a href="https://hth-site-huatihui.com">hth</a></span> 开始
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer-note">
+            — 整理于安静翻阅的间隙 —
+        </div>
+    </div>
+</body>
+</html>
